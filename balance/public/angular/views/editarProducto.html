@@ -1,0 +1,47 @@
+<form class="css-form" name="frmEditar"  ng-submit="frmEditar.$valid && ctrl.editar()" 
+      ng-controller="EditarProductoController as ctrl"
+      novalidate >
+    <div class="jumbotron">
+        <h1 class="text-center">Editar Producto</h1>
+        
+        Fecha: <input type="text" name="fecha" ng-model="ctrl.fecha" id="fecha" required/>
+        <div class="jonasValidation" ng-messages="frmEditar.fecha.$error" ng-if="!frmEditar.fecha.$pristine || frmEditar.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+         <br>
+        Nombre: <input type="text" name="nombre" ng-model="ctrl.nombre" ng-minlength="5" ng-maxlength="150" required />
+        <div class="jonasValidation" ng-messages="frmEditar.nombre.$error" ng-if="!frmEditar.nombre.$pristine || frmEditar.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+        
+        Rubro: 
+        <select ng-model="ctrl._rubro" ng-options="rubro._id as 
+        rubro.nombre for rubro in ctrl._rubros" required></select>
+        <a href="#/nuevoRubro">Nuevo Rubro</a>
+        <br>
+        Seleccióne el tipo :
+        <br>
+        Ingreso: <input type="radio" ng-model="ctrl.tipo" value="ingreso" required>
+        Egreso: <input type="radio" ng-model="ctrl.tipo" value="egreso" required>
+        <br>
+        Cantidad: <input type="text" name="cantidad" ng-model="ctrl.cantidad" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" required/>
+        
+        <div class="jonasValidation" ng-messages="frmEditar.cantidad.$error" ng-if="!frmEditar.cantidad.$pristine || frmEditar.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+        <br>
+        Comentarios: <input type="text" name="comentarios" ng-model="ctrl.comentarios"/>
+         
+        
+        <br>
+        <p class="text-center">
+             <input class="btn btn-lg btn-success" 
+             role="button" type="submit" value="Guardar Cambios" />
+             <a class="btn btn-lg btn-success"   
+              href="#/unBalance/{{ctrl.balanceId}}" role="button">Cancelar</a>
+        </p>
+        {{frmEditar.$valid}}
+        {{ctrl.fecha}}
+    </div> 
+</form>
+

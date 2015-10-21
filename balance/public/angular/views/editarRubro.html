@@ -1,0 +1,20 @@
+<form name="frmEditar"  ng-submit="frmEditar.$valid && ctrl.editar()" 
+      ng-controller="EditarRubroController as ctrl"
+      novalidate >
+    <div class="jumbotron">
+        <h1 class="text-center">Editar Rubro</h1>
+        Nombre: <input type="text" name="nombre" ng-model="ctrl.nombre" 
+                  required ng-pattern="/^[a-zA-Z ]{0,}$/" required minlength="1" maxlength="30" />
+         <div class="jonasValidation" ng-messages="frmEditar.nombre.$error" ng-if="!frmEditar.nombre.$pristine || frmEditar.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+        <br>
+        <p class="text-center">
+             <input class="btn btn-lg btn-success" 
+             role="button" type="submit" value="Guardar Cambios" />
+             <a class="btn btn-lg btn-success"   
+              href="#/todosRubros" role="button">Cancelar</a>
+        </p>
+    </div> 
+</form>
+

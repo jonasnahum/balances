@@ -1,0 +1,28 @@
+<div ng-controller="VerProductoController as ctrl">
+     <div class="jumbotron">
+        <h1 class="text-center">Ver Producto</h1>
+        Fecha: {{ctrl.fecha | date:'yyyy-MM-dd'}}
+        <br>
+        Nombre: {{ctrl.nombre}}
+        <br>
+        Rubro: {{ctrl._rubro}}
+        <br>
+        Tipo: {{ctrl.tipo}}
+        <br> 
+        Cantidad: {{ctrl.cantidad}}
+        <br>
+        Comentarios: {{ctrl.comentarios}}
+        <br>
+        <a ng-href="#/unBalance/{{ctrl.balanceId}}">Regresar</a>
+         <br>
+         <br>
+        <p class="text-center">
+            <a class="btn btn-lg btn-success" ng-
+            href="#/editarProducto/{{ctrl.id}}/{{ctrl.balanceId}}" role="button">Editar</a>
+            <a class="btn btn-lg btn-warning" href ng-click="ctrl.delete()" role="button">Borrar</a>
+        </p>
+    </div>
+</div>
+
+
+

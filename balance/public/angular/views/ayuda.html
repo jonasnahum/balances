@@ -1,0 +1,77 @@
+ <div class="container"  ng-controller="AyudaController as ctrl">
+      <div class="blog-header">
+        <h1 class="blog-title">Ayuda</h1>
+        <p class="lead blog-description">El sitio oficial balances.com</p>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+          <div class="blog-post">
+            <h2 class="blog-post-title">balances.com</h2>
+                <p>Balances es un programa que te permite obtener un informe de las cuentas de una                    empresa, comparando sus ingresos y egresos para establecer el nivel de    
+                   beneficios o pérdidas.
+                </p>
+            <h2>Signin</h2>
+                <p>Es muy fácil ingresar al programa, sólo se necesita de un correo electrónico 
+                   válido y una contraseña, la cual se puede obtener en <a href="#/signin">esta 
+                   dirección</a>
+                </p>
+            <h2>Todos los balances</h2>
+                <p>Una vez que el usuario se ha identificado con su nombre y contraseña válidos, el 
+                    programa muestra la vista "Todos los balances", en donde el usuario puede ver 
+                    un listado de todos los nombres de balances que ha creado, puede buscar un 
+                    balance específico escribiendo las palabras clave en el recuadro de búsqueda, 
+                    así como crear nuevos balances con sólo indicar el nombre. Es importante 
+                    resaltar que para crear un nuevo balance se necesita un mínimo de 3 caracteres 
+                    en el nombre.</a>
+                </p>
+            <h2>Todos los balances</h2>
+                <p>Una vez que el usuario se ha identificado con su nombre y contraseña válidos, el                     programa muestra la vista "Todos los balances", en donde el usuario puede ver                       un listado de todos los nombres de balances que ha creado, puede buscar un                         balance específico escribiendo las palabras clave en el recuadro de búsqueda,                       así como crear nuevos balances con sólo indicar el nombre. Es importante                           resaltar que para crear un nuevo balance se necesita un mínimo de 3 caracteres                     en el nombre.
+                </p>
+            <h2>balance</h2>
+                <p>Cada balance creado en la vista de "Todos los balances" es también un link, en                       cual lleva a la lista de productos del balance seleccionado. En la vista                           "Balance", se muestra un listado de productos ordenados por fecha y cada                           producto presenta su balance positivo o negativo de una forma fácil y                               sencillamente identificable.
+                </p>
+                <p>En esta se puede crear un "Nuevo producto", el cual se añadirá a la lista de                         productos asociada con el balance actual(el que ha sido seleccionado en la                         vista de "Todos los balances").
+                </p>
+                <blockquote>
+                    <p>Es importante mencionar que los productos deberán ser registrados en orden                           cronológico, es decir, en el momento en que hay un ingreso o un egreso de                           dinero, debido a que la base de datos de los productos genera el calculo de                         la propiedad balance según el orden de registro, por lo que <strong>no se                           puede registrar un producto con fecha anterior a la fecha actual</strong>,                         si usted hace lo anterior, su balance se resultará afectado.
+                    </p>
+                </blockquote>
+                <blockquote>
+                    <p>Debido a que la base de datos guarda rubros asociados con productos y estos                          a su vez asociados con balances de un usuario, resulta imposible borrar                            uno de estos documentos, puesto que afectaría la cadena de relaciones                              entre ellos, por lo tanto se recomienda que <strong>si tiene usted un                              producto que desee anular, guarde entonces un nuevo producto que realice                            la operación contraria</strong>, de este modo el balance llegará al                                resultado esperado sin necesidad de haber borrado un producto.</p>
+                </blockquote>
+            <h2>Rubro</h2>
+                <p>Un rubro es un conjunto de artículos de consumo de un mismo tipo o relacionados                  con determinada actividad. Si usted ingresa un "Nuevo rubro", este rubro se                         encontrará disponible para todos los balances. Para ver todos los rubros                            asociados a los balances, usted debe ir a la vista de "Todos los rubros".
+                </p>
+            <br>
+                <p>Se trata de un programa que muestra de manera fácil los balances, se pueden                          crear varios balances y varios rubros, en la vista del programa llamada                            "balance" se presenta listado de productos en donde se pueden crear nuevos                           productos y agregarlos a la lista.
+                </p>
+          </div><!-- /.blog-post -->
+        
+        <nav>
+            <ul class="pager">
+              <li><a ng-href="#/unBalance/{{ctrl.balanceId}}#Anchorname">Regresar a balance</a></li>
+              <li><a ng-href="#/todosBalances#Anchorname">Todos los balances</a></li>
+            </ul>
+        </nav>
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Aviso de privacidad</h4>
+            <p>Este programa esta protegido y es seguro, la información que usted proporcione será <em>estrictamente confidencial</em> y es para agilizar la eficiencia de su empresa.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Contacto</h4>
+            <ol class="list-unstyled">
+              <li>Author: Lic. Jonás Nahúm Jiménez García.</li>
+              <li>email: jonasnahum@gmail.com</li>
+              <li>teléfono: 452 165 22 47</li>
+              <li>Facebook: Jonas Nahum Jimenez Garcia</li>
+            </ol>
+          </div>
+         </div><!-- /.blog-sidebar -->
+      
+
+        </div><!-- /.row -->
+    </div><!-- /.container -->

@@ -1,0 +1,55 @@
+<div ng-controller="UnBalanceController as ctrl" style="margin-right: 30px;">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand">Balances.</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" >
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#/todosBalances">Todos los balances</a></li>
+            <li><a href="#/todosRubros/{{ctrl.balanceId}}">Todos los rubros</a></li>
+            <li><a href="#/buscarPorFecha/{{ctrl.balanceId}}">Buscar por rango de fecha</a></li>
+           
+          </ul>
+        
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+              <a href class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ayuda <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a ng-href="#/ayuda/{{ctrl.balanceId}}">Cómo usar balances.</a></li>
+              </ul>
+            </li>
+            <li><a href ng-click="ctrl.logout()">Logout {{ctrl.emailUsuario}}</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <h1 style="margin-top: 80px;" class="text-center">Balance: {{ctrl.balanceNombre}}</h1>
+    <p class="text-right">      
+         <a class="btn btn-lg btn-success" href="#/nuevoProducto/{{ctrl.balanceId}}" 
+         role="button">Nuevo Producto</a>
+    </p>
+    <div ng-show="ctrl.productos.length > 0">
+         <label>Buscar: <input ng-model="ctrl.searchText"></label>
+    </div>
+    <table class="table table-hover"  >
+      <th>FECHA</th>
+      <th>NOMBRE</th>
+      <th>RUBRO</th>
+      <th>INGRESO</th>
+      <th>EGRESO</th>
+      <th>BALANCE</th>
+      <th>COMENTARIOS</th>
+      <tr dir-paginate="producto in ctrl.productos  | filter:ctrl.searchText | itemsPerPage: 12">
+        <td>{{producto.fecha | date:'MMM d, y'}}</td>
+        <td><a ng-href="#/verProducto/{{producto._id}}/{{ctrl.balanceId}}">{{producto.nombre}}</td>
+        <td>{{producto._rubro.nombre}}</td>
+        <td>{{producto.tipo === "ingreso" ? producto.cantidad : "" }}</td>
+        <td>{{producto.tipo === "egreso" ? producto.cantidad : "" }}</td>
+        <td>{{producto.balance}}</td>
+        <td>{{producto.comentarios}}</td>
+      </tr>
+    </table>
+    <dir-pagination-controls></dir-pagination-controls>
+</div>

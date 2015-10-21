@@ -1,0 +1,71 @@
+<form class="css-form" name="frmNuevo" ng-submit="frmNuevo.$valid && ctrl.guardar()" 
+                      ng-controller="NuevoProductoController as ctrl"
+                      novalidate>
+     <div class="jumbotron">
+        <h1 class="text-center">Nuevo Producto</h1>
+        Fecha: <input type="text" name="fecha" ng-model="ctrl.fecha" id="fecha" required/>
+         <div class="jonasValidation" ng-messages="frmNuevo.fecha.$error" ng-if="!frmNuevo.fecha.$pristine || frmNuevo.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+         
+         <br>
+         
+        Nombre: <input type="text" name="nombre" ng-model="ctrl.nombre" required minlength="3" maxlength="150"  />
+
+         <div class="jonasValidation" ng-messages="frmNuevo.nombre.$error" ng-if="!frmNuevo.nombre.$pristine || frmNuevo.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+         <br>
+         
+        Rubro: 
+        <select name="_rubro" ng-model="ctrl._rubro" ng-options="rubro._id as 
+            rubro.nombre for rubro in ctrl._rubros" required>
+        </select>
+        <div class="jonasValidation" ng-messages="frmNuevo._rubro.$error" ng-if="!frmNuevo._rubro.$pristine || frmNuevo.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+        <a href="#/nuevoRubro/{{ctrl.balanceId}}">Nuevo Rubro</a>
+        <br>
+        Elija el tipo :
+        <div class="radio">
+            <label>
+                <input type="radio" value="ingreso" name="tipo" ng-model="ctrl.tipo" required>
+                Ingreso
+            </label>
+            <div class="jonasValidation" ng-messages="frmNuevo.tipo.$error" ng-if="!frmNuevo.tipo.$pristine || frmNuevo.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+            </div>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" value="egreso" ng-model="ctrl.tipo" required>
+                egreso
+            </label>
+        </div>
+        Cantidad: <input 
+                         type="text" 
+                         name="cantidad"
+                         ng-model="ctrl.cantidad"
+                         required
+                         ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" />
+        
+         <div class="jonasValidation" ng-messages="frmNuevo.cantidad.$error" ng-if="!frmNuevo.cantidad.$pristine || frmNuevo.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+
+        Comentarios: <input type="text" name="comentarios" ng-model="ctrl.comentarios" minlength="1" maxlength="300" />
+        
+         <div class="jonasValidation" ng-messages="frmNuevo.comentarios.$error" ng-if="!frmNuevo.cantidad.$pristine || frmNuevo.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+         
+        <p class="text-center">
+            <input class="btn btn-lg btn-success" 
+            role="button" type="submit" value="Guardar Producto" />
+            <a class="btn btn-lg btn-success"   
+              href="#/unBalance/{{ctrl.balanceId}}" role="button">Cancelar</a>
+        </p>
+    </div>
+</form>
+
+

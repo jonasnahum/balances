@@ -1,0 +1,21 @@
+<form name="frmNuevo" ng-submit="frmNuevo.$valid && ctrl.guardar()" 
+                      ng-controller="NuevoRubroController as ctrl"
+                      novalidate  >
+     <div class="jumbotron">
+        <h1 class="text-center">Nuevo Rubro</h1>
+        Nombre: <input type="text" name="nombre" ng-model="ctrl.nombre" 
+                  required minlength="1" maxlength="30" />
+         <div class="jonasValidation" ng-messages="frmNuevo.nombre.$error" ng-if="!frmNuevo.nombre.$pristine || frmNuevo.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+        <div class="btn-group pull-right" role="group" role="group">
+            <a class="btn btn-default" ng-click="ctrl.guardarRegresarAproducto()" >Guardar y volver a Nuevo producto</a>
+            <input class="btn btn-default" type="submit" value="Guardar y volver a todos los rubros" />
+            <a class="btn btn-primary" href="#/todosRubros/{{ctrl.balanceId}}" >Cancelar</a>
+        </div>
+         
+         
+         
+         
+    </div> 
+</form>

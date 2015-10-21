@@ -1,0 +1,54 @@
+<form class="css-form" name="frmFecha" ng-submit="frmFecha.$valid && ctrl.buscarPorFechas()" 
+                      ng-controller="PorFechaController as ctrl"
+                      novalidate>
+     <div class="jumbotron">
+        <h1 class="text-center">Buscar productos por rango de fecha</h1>
+        Fecha inicial: <input type="text" name="fechaInicio" ng-model="ctrl.fechaInicio" id="fechaInicio" required/>
+         <div class="jonasValidation" ng-messages="frmFecha.fechaInicio.$error" ng-if="!frmFecha.fechaInicio.$pristine || frmFecha.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+         </div>
+         <br>
+        Fecha límite: <input type="text" name="fechaLimite" ng-model="ctrl.fechaLimite" id="fechaLimite" required/>
+         <div class="jonasValidation" ng-messages="frmFecha.fechaLimite.$error" ng-if="!frmFecha.fechaLimite.$pristine || frmFecha.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+         </div>
+         <br>
+
+         <br>
+         
+
+        <p class="text-center">
+            <input class="btn btn-lg btn-success" 
+            role="button" type="submit" value="Productos por fecha" />
+            <a class="btn btn-lg btn-success"   
+              href="#/unBalance/{{ctrl.balanceId}}" role="button">Cancelar</a>
+        </p>
+         
+            
+    </div>
+    <div ng-show="ctrl.productos.length > 0" >
+         <label>Buscar: <input ng-model="ctrl.searchText"></label>
+    </div>
+    <table class="table table-hover">
+      <th>FECHA</th>
+      <th>NOMBRE</th>
+      <th>RUBRO</th>
+      <th>INGRESO</th>
+      <th>EGRESO</th>
+      <th>BALANCE</th>
+      <th>COMENTARIOS</th>
+      <tr dir-paginate="producto in ctrl.productos | filter:ctrl.searchText | itemsPerPage: 12">
+        <td>{{producto.fecha | date:'MMM d, y'}}</td>
+        <td><a ng-href="#/verProducto/{{producto._id}}">{{producto.nombre}}</td>
+        <td>{{producto._rubro.nombre}}</td>
+        <td>{{producto.tipo === "ingreso" ? producto.cantidad : "" }}</td>
+        <td>{{producto.tipo === "egreso" ? producto.cantidad : "" }}</td>
+        <td>{{producto.balance}}</td>
+        <td>{{producto.comentarios}}</td>
+      </tr>
+    </table>
+    <dir-pagination-controls></dir-pagination-controls>
+        
+</form>
+
+

@@ -1,0 +1,20 @@
+<form class="css-form" name="frmNuevo" ng-submit="frmNuevo.$valid && ctrl.guardar()" 
+                      ng-controller="NuevoBalanceController as ctrl"
+                      novalidate>
+    <div class="jumbotron">
+        <h1 class="text-center">Nuevo Balance</h1>
+                
+        Nombre: <input type="text" name="nombre" ng-model="ctrl.nombre" required minlength="3" maxlength="150"  />
+
+        <div class="jonasValidation" ng-messages="frmNuevo.nombre.$error" ng-if="!frmNuevo.nombre.$pristine || frmNuevo.$submitted" role="alert" >
+           <div ng-messages-include="/error/messages.html"></div>
+        </div>
+               
+        <p class="text-center">
+            <input class="btn btn-lg btn-success" 
+            role="button" type="submit" value="Guardar Balance" />
+            <a class="btn btn-lg btn-success"   
+              href="#/todosBalances" role="button">Cancelar</a>
+        </p>
+    </div>
+</form>

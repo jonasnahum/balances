@@ -1,0 +1,21 @@
+<div ng-controller="TodosProductosController as ctrl">
+    <h1 class="text-center">Productos</h1>
+         <div class="navbar-right" style="position: relative; top: -70px; left: 96px; background-color:#F8F8F8; border: 1px solid transparent; border-color: #E7E7E7;">
+         </div>
+    <p class="text-right">
+        <a class="btn btn-lg btn-success" href="#/nuevoProducto" 
+        role="button"> 
+        Nuevo Producto</a>
+    </p>
+
+    <table class="table table-hover">
+        <tr dir-paginate="producto in ctrl.productos | itemsPerPage: 12">
+            <td><a ng-href="#/verProducto/{{producto._id}}">{{producto.nombre}}</a></td>      
+            <td>hola</td>
+            <td>hola</td>
+            <td>hola</td>
+        </tr>
+    </table> 
+    <dir-pagination-controls></dir-pagination-controls>
+
+</div>
